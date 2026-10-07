@@ -42,7 +42,7 @@ export const logos = [
   { src: '/images/logo-deloitte-digital.png', alt: 'Deloitte Digital', height: 34 },
   { src: '/images/logo-coinjar.png', alt: 'CoinJar', height: 24 },
   { src: '/images/logo-cocredit.png', alt: 'Co.Credit', height: 24 },
-  { src: '/images/logo-localagentfinder.png', alt: 'LocalAgentFinder', height: 36 },
+  { src: '/images/logo-localagentfinder.svg', alt: 'LocalAgentFinder', height: 36 },
   { src: '/images/logo-packsmith.svg', alt: 'Packsmith', height: 19 },
   { src: '/images/logo-gymleads.png', alt: 'GymLeads', height: 20 },
 ];
@@ -72,7 +72,7 @@ export const work: {
   {
     org: 'LocalAgentFinder · Real estate',
     chip: 'laf',
-    mark: '/images/mark-localagentfinder.png',
+    mark: '/images/mark-localagentfinder.svg',
     dates: '2025 – 26',
     title: 'Releases from weeks to hours',
     body:
@@ -103,7 +103,7 @@ export const work: {
 ];
 
 export const sonderSlides = [
-  { kind: 'laf', src: '/images/mark-localagentfinder.png' },
+  { kind: 'laf', src: '/images/mark-localagentfinder.svg' },
   { kind: 'packsmith', src: '/images/mark-packsmith.svg' },
   { kind: 'vanguard', src: '/images/mark-vanguard.png' },
   { kind: 'telstra', src: '/images/mark-telstra.png' },
