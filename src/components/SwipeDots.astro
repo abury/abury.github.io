@@ -1,0 +1,35 @@
+---
+// Position dots for a card carousel. Hidden until the grid becomes
+// a horizontal scroller on narrow screens (see Carousel styles in global.css).
+interface Props {
+  count: number;
+}
+
+const { count } = Astro.props;
+---
+
+<div class="swipe-dots" aria-hidden="true">
+  {Array.from({ length: count }).map((_, i) => <span class:list={{ on: i === 0 }} />)}
+</div>
+
+<script>
+  // Keep each dot row in step with the scroll position of the grid before it.
+  document.querySelectorAll<HTMLElement>('.work-grid').forEach((grid) => {
+    const holder = grid.nextElementSibling;
+    if (!holder || !holder.classList.contains('swipe-dots')) return;
+    const dots = holder.querySelectorAll<HTMLElement>('span');
+
+    function update() {
+      const card = grid.children[0] as HTMLElement | undefined;
+      if (!card) return;
+      const step = card.getBoundingClientRect().width + 16;
+      let n = Math.round(grid.scrollLeft / step);
+      if (grid.scrollLeft >= grid.scrollWidth - grid.clientWidth - 2) n = dots.length - 1;
+      n = Math.max(0, Math.min(dots.length - 1, n));
+      dots.forEach((dot, i) => dot.classList.toggle('on', i === n));
+    }
+
+    grid.addEventListener('scroll', update, { passive: true });
+    update();
+  });
+</script>

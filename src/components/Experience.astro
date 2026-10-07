@@ -1,0 +1,305 @@
+---
+import { experience, sonderSlides, sonderEngagements } from '../data/site';
+
+const { before, sonder, after } = experience;
+---
+
+<section id="experience" class="section experience">
+  <h2>Experience</h2>
+  <div class="card experience-list">
+    {
+      before.map((role) => (
+        <div class="role">
+          <div class="role-mark" aria-hidden="true">
+            <img src={role.mark.src} alt="" />
+          </div>
+          <div class="role-body">
+            <div class="role-title">{role.title}</div>
+            <div class="role-org">{role.org}</div>
+          </div>
+          <div class="role-dates">{role.dates}</div>
+        </div>
+      ))
+    }
+
+    <div class="role role-parent">
+      <div class="role-mark role-mark-slides" aria-hidden="true">
+        {
+          sonderSlides.map((slide, i) => (
+            <div class:list={['slide', `slide-${slide.kind}`]} style={`animation-delay: ${i * 3}s`}>
+              <img src={slide.src} alt="" />
+            </div>
+          ))
+        }
+      </div>
+      <div class="role-body">
+        <div class="role-title">{sonder.title}</div>
+        <div class="role-org">{sonder.org}</div>
+      </div>
+      <div class="role-dates">{sonder.dates}</div>
+    </div>
+
+    <div class="sub-roles">
+      {
+        sonderEngagements.map((item) => (
+          <div class="sub-role">
+            <div class="sub-role-title">
+              <strong>{item.title}</strong>
+              <span> · {item.org}</span>
+            </div>
+            {item.dates && <div class="role-dates">{item.dates}</div>}
+          </div>
+        ))
+      }
+      <div class="sub-role">
+        <div class="sub-role-title muted">And many others</div>
+      </div>
+    </div>
+
+    {
+      after.map((role) => (
+        <div class="role">
+          <div class:list={['role-mark', { 'role-mark-cover': role.mark.cover }]} aria-hidden="true">
+            <img src={role.mark.src} alt="" />
+          </div>
+          <div class="role-body">
+            <div class="role-title">{role.title}</div>
+            <div class="role-org">{role.org}</div>
+          </div>
+          <div class="role-dates">{role.dates}</div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .experience {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 32px 64px;
+  }
+
+  .experience h2 {
+    flex: 0 1 260px;
+  }
+
+  .experience-list {
+    flex: 1 1 560px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 32px;
+  }
+
+  .role {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .role:last-child {
+    border-bottom: 0;
+  }
+
+  .role-parent {
+    padding-bottom: 10px;
+    border-bottom: 0;
+  }
+
+  .role-mark {
+    flex: 0 0 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--ground);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .role-mark img {
+    max-width: 28px;
+    max-height: 26px;
+  }
+
+  .role-mark-cover {
+    background: #000000;
+  }
+
+  .role-mark-cover img {
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .role-body {
+    flex: 1 1 260px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .role-title {
+    font-weight: 600;
+  }
+
+  .role-org,
+  .role-dates {
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+
+  .role-dates {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Sonder Digital engagements */
+
+  .sub-roles {
+    display: flex;
+    flex-direction: column;
+    margin-left: 62px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sub-role {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 18px;
+    padding: 9px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .sub-role-title {
+    flex: 1 1 260px;
+    min-width: 0;
+    font-size: 16px;
+  }
+
+  .sub-role-title span {
+    color: var(--ink-soft);
+  }
+
+  /* Narrow: dates sit under the title, aligned with the text */
+
+  @container (max-width: 560px) {
+    .experience-list {
+      padding: 4px 20px;
+    }
+
+    .role {
+      gap: 6px 14px;
+      padding: 14px 0;
+    }
+
+    .role-body {
+      flex: 1 1 0;
+    }
+
+    .role > .role-dates {
+      flex: 0 0 calc(100% - 58px);
+      margin: -4px 0 0 58px;
+      font-size: 13px;
+    }
+
+    .sub-roles {
+      margin-left: 0;
+    }
+
+    .sub-role {
+      gap: 0 12px;
+      padding: 8px 0;
+    }
+
+    .sub-role > .role-dates {
+      font-size: 13px;
+    }
+  }
+
+  /* Rotating client marks */
+
+  .role-mark-slides {
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: slide-fade 12s linear infinite;
+  }
+
+  .slide img {
+    max-width: none;
+    max-height: none;
+  }
+
+  .slide-laf {
+    background: #ea1c2d;
+  }
+
+  .slide-laf img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .slide-packsmith {
+    background: #0b121c;
+  }
+
+  .slide-packsmith img {
+    width: 26px;
+    height: auto;
+  }
+
+  .slide-vanguard img {
+    height: 24px;
+    width: auto;
+  }
+
+  .slide-telstra img {
+    height: 30px;
+    width: auto;
+  }
+
+  @keyframes slide-fade {
+    0% {
+      opacity: 0;
+    }
+    4% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 1;
+    }
+    29% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide {
+      animation: none;
+    }
+
+    .slide:first-child {
+      opacity: 1;
+    }
+  }
+</style>

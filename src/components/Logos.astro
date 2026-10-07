@@ -1,0 +1,125 @@
+---
+import { logos } from '../data/site';
+---
+
+<section class="logos" aria-label="Teams I've worked with">
+  <div class="logos-card">
+    <div class="eyebrow">Teams I've worked with</div>
+    <div class="logo-wrap">
+      <div class="logo-track">
+        <ul class="logo-list">
+          {
+            logos.map((logo) => (
+              <li>
+                <img src={logo.src} alt={logo.alt} style={`height: ${logo.height}px`} />
+              </li>
+            ))
+          }
+        </ul>
+        <ul class="logo-list logo-dup" aria-hidden="true">
+          {
+            logos.map((logo) => (
+              <li>
+                <img src={logo.src} alt="" style={`height: ${logo.height}px`} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .logos {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter) 88px;
+    container-type: inline-size;
+  }
+
+  .logos-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 28px 36px;
+    background: var(--white);
+    border-radius: var(--radius-card);
+  }
+
+  .eyebrow {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .logo-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px 34px;
+  }
+
+  .logo-list li {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .logo-list img {
+    width: auto;
+  }
+
+  .logo-dup {
+    display: none;
+  }
+
+  /* Narrow: continuous marquee */
+
+  @keyframes logoscroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @container (max-width: 760px) {
+    .logo-wrap {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    }
+
+    .logo-track {
+      display: flex;
+      width: max-content;
+      animation: logoscroll 24s linear infinite;
+    }
+
+    .logo-list,
+    .logo-dup {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      gap: 0 40px;
+      padding-right: 40px;
+    }
+
+    .logo-list li {
+      flex: 0 0 auto;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-track {
+      animation: none;
+    }
+
+    .logo-wrap {
+      overflow-x: auto;
+    }
+  }
+</style>

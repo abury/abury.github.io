@@ -1,0 +1,244 @@
+/*-----------------------------------*\
+  aronbury.com — global styles
+  Component-specific rules live in each .astro file.
+\*-----------------------------------*/
+
+:root {
+  --ground: #f1f2ee;
+  --ink: #111512;
+  --ink-soft: #3d4440;
+  --line: #e2e5df;
+  --line-strong: #c9cec6;
+  --photo-ground: #d3d8d0;
+  --white: #ffffff;
+  --accent: #1f45d6;
+
+  --ff-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --ff-body: 'Instrument Sans', system-ui, sans-serif;
+
+  --radius-card: 24px;
+  --radius-hero: 36px;
+  --gutter: 32px;
+  --max: 1160px;
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--ff-body);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ink);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--ff-display);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-size: 27px;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+.muted {
+  color: var(--ink-soft);
+}
+
+/*-----------------------------------*\
+  Sections
+\*-----------------------------------*/
+
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 96px;
+  container-type: inline-size;
+}
+
+.section-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/*-----------------------------------*\
+  Buttons
+\*-----------------------------------*/
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.btn-dark {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.btn-dark:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.btn-outline {
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-light {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.btn-light:hover {
+  color: var(--accent);
+}
+
+.btn-sm {
+  min-height: 44px;
+  padding: 0 22px;
+  font-size: 15px;
+}
+
+.btn-lg {
+  min-height: 56px;
+  padding: 0 30px;
+  font-size: 19px;
+}
+
+/*-----------------------------------*\
+  Cards and carousels
+  (shared by Work and References)
+\*-----------------------------------*/
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius-card);
+}
+
+.card-dark {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(440px, 100%), 1fr));
+  gap: 20px;
+}
+
+.swipe-dots {
+  display: none;
+}
+
+.swipe-dots span {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line-strong);
+  transition:
+    width 0.3s,
+    background 0.3s;
+}
+
+.swipe-dots span.on {
+  width: 18px;
+  background: var(--ink);
+}
+
+/* Narrow: horizontal snap carousel */
+
+@container (max-width: 760px) {
+  .work-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 6px;
+    scroll-padding: 0 var(--gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .work-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .work-grid > article,
+  .work-grid > figure {
+    flex: 0 0 84%;
+    max-width: 360px;
+    scroll-snap-align: start;
+  }
+
+  .swipe-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: -12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

@@ -3,387 +3,285 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aron Bury - Founder, Engineering Leadership</title>
+  <title>Aron Bury - Engineering Leadership</title>
+  <meta name="description" content="Aron Bury turns financial operations into software. Co-founder &amp; CTO, Head of Engineering, Melbourne.">
 
-  <!--
-    - favicon
-  -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!--
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
+  <header class="site-header">
+    <div class="wordmark">Aron Bury</div>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#references">References</a>
+    </nav>
+    <a href="#contact" class="btn btn-dark btn-sm">Get in touch</a>
+  </header>
 
   <main>
 
-    <!--
-      - #SIDEBAR
-    -->
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-copy">
+        <h1 class="hl" aria-label="I turn financial operations into software">
+          <span class="hl-row" aria-hidden="true">
+            <span class="hl-word">I turn</span> <span class="hl-phrase">financial operations</span>
+          </span>
+          <span class="hl-row" aria-hidden="true">
+            <span class="hl-word">into</span> <span class="hl-phrase">software</span>
+          </span>
+        </h1>
+        <p class="lede">Over 15 years I've built and led engineering teams across startups, small businesses and enterprises, and taken products from zero to exit. I make the build-vs-buy decisions on technology, and build it myself when nothing fits.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-dark">Get in touch</a>
+          <a href="#work" class="btn btn-outline">See my work</a>
+        </div>
+        <dl class="stats">
+          <div class="stat">
+            <dd>15</dd>
+            <dt>Years in software</dt>
+          </div>
+          <div class="stat">
+            <dd>2</dd>
+            <dt>Companies co-founded</dt>
+          </div>
+        </dl>
+      </div>
 
-    <aside class="sidebar" data-sidebar>
+      <div class="hero-photo">
+        <div class="hero-photo-backdrop" aria-hidden="true"></div>
+        <div class="hero-photo-frame">
+          <img src="./assets/images/aron.jpg" alt="Aron Bury" width="1000" height="1250">
+        </div>
+      </div>
+    </section>
 
-      <div class="sidebar-info">
+    <!-- Logos -->
+    <section class="logos" aria-label="Teams I've worked with">
+      <div class="logos-card">
+        <div class="eyebrow">Teams I've worked with</div>
+        <div class="logo-wrap">
+          <div class="logo-track">
+            <ul class="logo-list">
+              <li><img src="./assets/images/logo-vanguard.png" alt="Vanguard" style="height: 24px"></li>
+              <li><img src="./assets/images/logo-telstra.png" alt="Telstra" style="height: 34px"></li>
+              <li><img src="./assets/images/logo-deloitte-digital.png" alt="Deloitte Digital" style="height: 34px"></li>
+              <li><img src="./assets/images/logo-coinjar.png" alt="CoinJar" style="height: 24px"></li>
+              <li><img src="./assets/images/logo-cocredit.png" alt="Co.Credit" style="height: 24px"></li>
+              <li><img src="./assets/images/logo-localagentfinder.png" alt="LocalAgentFinder" style="height: 36px"></li>
+              <li><img src="./assets/images/logo-packsmith.svg" alt="Packsmith" style="height: 19px"></li>
+              <li><img src="./assets/images/logo-gymleads.png" alt="GymLeads" style="height: 20px"></li>
+            </ul>
+            <ul class="logo-list logo-dup" aria-hidden="true">
+              <li><img src="./assets/images/logo-vanguard.png" alt="" style="height: 24px"></li>
+              <li><img src="./assets/images/logo-telstra.png" alt="" style="height: 34px"></li>
+              <li><img src="./assets/images/logo-deloitte-digital.png" alt="" style="height: 34px"></li>
+              <li><img src="./assets/images/logo-coinjar.png" alt="" style="height: 24px"></li>
+              <li><img src="./assets/images/logo-cocredit.png" alt="" style="height: 24px"></li>
+              <li><img src="./assets/images/logo-localagentfinder.png" alt="" style="height: 36px"></li>
+              <li><img src="./assets/images/logo-packsmith.svg" alt="" style="height: 19px"></li>
+              <li><img src="./assets/images/logo-gymleads.png" alt="" style="height: 20px"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <figure class="avatar-box">
-          <img src="./assets/images/avatar.png" alt="Aron Bury" width="80">
+    <!-- Selected work -->
+    <section id="work" class="section section-stack">
+      <h2>Selected work</h2>
+      <div class="work-grid">
+
+        <article class="card work-card">
+          <div class="card-meta">
+            <div class="card-org">
+              <span class="chip chip-packsmith" aria-hidden="true"><img src="./assets/images/mark-packsmith.svg" alt=""></span>
+              <span>Packsmith · Logistics</span>
+            </div>
+            <div>2024 – 25</div>
+          </div>
+          <h3>A billing engine that replaced weeks of manual work</h3>
+          <p>Billing was worked out by hand: one to two people, two to three weeks, every run. I built a rules-based engine that works out what each customer is charged and runs on its own.</p>
+          <div class="card-role">Engineering Manager</div>
+        </article>
+
+        <article class="card work-card">
+          <div class="card-meta">
+            <div class="card-org">
+              <span class="chip chip-laf" aria-hidden="true"><img src="./assets/images/mark-localagentfinder.png" alt=""></span>
+              <span>LocalAgentFinder · Real estate</span>
+            </div>
+            <div>2025 – 26</div>
+          </div>
+          <h3>Releases from weeks to hours</h3>
+          <p>I led a team of eight. We brought in modern CI and infrastructure as code, split a legacy monolith so each app deploys on its own, and gave leadership a clear view of how long work would take. Deployments went from days to minutes.</p>
+          <div class="card-role">Head of Engineering</div>
+        </article>
+
+        <article class="card work-card">
+          <div class="card-meta">
+            <div class="card-org">
+              <span class="chip chip-coinjar" aria-hidden="true"><img src="./assets/images/mark-coinjar.png" alt=""></span>
+              <span>CoinJar · Crypto exchange</span>
+            </div>
+            <div>2014 – 15</div>
+          </div>
+          <h3>Making bitcoin something merchants could accept</h3>
+          <p>I led an engineering team of seven across three streams to rebuild the CoinJar platform for a nationwide payment network, letting people pay for goods and services with bitcoin in real time. That included CoinJar Swipe, a debit card that let people pay with bitcoin anywhere that accepted EFTPOS.</p>
+          <div class="card-role">Technical Lead</div>
+        </article>
+
+        <article class="card work-card card-dark">
+          <div class="card-meta">
+            <div class="card-org">
+              <span class="chip chip-cocredit" aria-hidden="true"><img src="./assets/images/mark-cocredit.png" alt=""></span>
+              <span>Co.Credit · Lending</span>
+            </div>
+            <div>2024 – now</div>
+          </div>
+          <h3>A lending platform, built end to end</h3>
+          <p>Loan origination, the lender portal, interest calculations, payment rails, a line of credit, and the Xero integration that keeps the loan system and the ledger in agreement. Externally audited.</p>
+          <div class="card-role">Co-founder &amp; CTO</div>
+        </article>
+
+      </div>
+      <div class="swipe-dots" aria-hidden="true">
+        <span class="on"></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section experience">
+      <h2>Experience</h2>
+      <div class="card experience-list">
+
+        <div class="role">
+          <div class="role-mark" aria-hidden="true"><img src="./assets/images/mark-cocredit.png" alt=""></div>
+          <div class="role-body">
+            <div class="role-title">Co-founder &amp; CTO</div>
+            <div class="role-org">Co.Credit · Private lending for cash flow businesses</div>
+          </div>
+          <div class="role-dates">2024 – now</div>
+        </div>
+
+        <div class="role role-parent">
+          <div class="role-mark role-mark-slides" aria-hidden="true">
+            <div class="slide slide-laf"><img src="./assets/images/mark-localagentfinder.png" alt=""></div>
+            <div class="slide slide-packsmith"><img src="./assets/images/mark-packsmith.svg" alt=""></div>
+            <div class="slide slide-vanguard"><img src="./assets/images/mark-vanguard.png" alt=""></div>
+            <div class="slide slide-telstra"><img src="./assets/images/mark-telstra.png" alt=""></div>
+          </div>
+          <div class="role-body">
+            <div class="role-title">Sonder Digital</div>
+            <div class="role-org">Engineering leadership engagements</div>
+          </div>
+          <div class="role-dates">2015 – now</div>
+        </div>
+
+        <div class="sub-roles">
+          <div class="sub-role">
+            <div class="sub-role-title"><strong>Head of Engineering</strong><span> · LocalAgentFinder</span></div>
+            <div class="role-dates">2025 – 26</div>
+          </div>
+          <div class="sub-role">
+            <div class="sub-role-title"><strong>Engineering Manager</strong><span> · Packsmith</span></div>
+            <div class="role-dates">2024 – 25</div>
+          </div>
+          <div class="sub-role">
+            <div class="sub-role-title"><strong>Mobile lead</strong><span> · Vanguard personal investor app</span></div>
+          </div>
+          <div class="sub-role">
+            <div class="sub-role-title muted">And many others</div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-mark" aria-hidden="true"><img src="./assets/images/mark-gymleads.png" alt=""></div>
+          <div class="role-body">
+            <div class="role-title">Co-founder</div>
+            <div class="role-org">GymLeads · CRM for gyms, built from first commit to exit</div>
+          </div>
+          <div class="role-dates">2016 – 23</div>
+        </div>
+
+        <div class="role">
+          <div class="role-mark" aria-hidden="true"><img src="./assets/images/mark-coinjar.png" alt=""></div>
+          <div class="role-body">
+            <div class="role-title">Technical Lead</div>
+            <div class="role-org">CoinJar</div>
+          </div>
+          <div class="role-dates">2014 – 15</div>
+        </div>
+
+        <div class="role">
+          <div class="role-mark role-mark-cover" aria-hidden="true"><img src="./assets/images/mark-deloitte.png" alt=""></div>
+          <div class="role-body">
+            <div class="role-title">Earlier roles</div>
+            <div class="role-org">Engineering Lead, Airloom · Mobile Engineer, Deloitte Digital</div>
+          </div>
+          <div class="role-dates">2011 – 14</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- References -->
+    <section id="references" class="section section-stack">
+      <h2>What people say</h2>
+      <div class="work-grid quotes-grid">
+
+        <figure class="card quote">
+          <blockquote>Within a handful of weeks the team had turned around. Aron assisted in the hiring of new developers and was hands on in every aspect of the dev team that needed assistance.</blockquote>
+          <figcaption><strong>Rowan Castan</strong> · CEO, Boop &amp; Co</figcaption>
         </figure>
 
-        <div class="info-content">
-          <h1 class="name" title="Aron Bury">Aron Bury</h1>
+        <figure class="card quote">
+          <blockquote>Aron joined the company early on, during a period of significant growth, and swiftly implemented tools and processes. Outages and downtime became all but obsolete under Aron's lead.</blockquote>
+          <figcaption><strong>Andrew Powell</strong> · Head of Customer Success, CoinJar</figcaption>
+        </figure>
 
-          <p class="title">Engineering Leadershipr</p>
-        </div>
+        <figure class="card quote">
+          <blockquote>Aron's ability to speak at a deeply technical level with client IT resources is valuable in complex and ambiguous technical environments, and he consistently translates this for non-technical clients.</blockquote>
+          <figcaption><strong>Andrew Moroney</strong> · General Manager, Loud &amp; Clear</figcaption>
+        </figure>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="#" class="contact-link">hi[at]aronbury.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Melbourne, Australia</address>
-            </div>
-
-          </li>
-
-        </ul>
+        <figure class="card quote">
+          <blockquote>As a leader Aron has made me question my approach to programming as well as work life and has truly been an inspiration to strive for excellence.</blockquote>
+          <figcaption><strong>PK Heng</strong> · Senior Engineer, Airloom</figcaption>
+        </figure>
 
       </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            I love seeing how software can empower people, and for the last 11 years I’ve brought the worlds of Engineering and Business together to design and build great software products.
-          </p>
-
-          <p>
-            As a developer I’ve worked across the stack in Ruby, Node, React, React Native, CI/CD, I’ve built traditional monolithic servers, native mobile clients and serverless.
-          </p>
-
-          <p>
-            As a Founder and Tech Lead I’ve hired and worked with amazing teams to design, build and scale systems for startups, small business and enterprise. I utilise Extreme programming to write clean, sustainable code that ultimately translates into a product that not only provides value and joy to it’s users, but can also evolve as the businesses needs inevitably change.
-          </p>
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What I do</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Rapid SaaS development</h4>
-
-                <!-- <p class="service-item-text">
-                  I've built and sold by own Saas
-                </p> -->
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Fractional CTO</h4>
-
-                <!-- <p class="service-item-text">
-                  Lorium ipsum dolor Sit Amet
-                </p> -->
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-cloud.svg" alt="AWS icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">AWS Cloud Engineering</h4>
-
-                <!-- <p class="service-item-text">
-                  Lorium ipsum dolor Sit Amet
-                </p> -->
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-development.svg" alt="AWS icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Full Stack Development</h4>
-
-                <!-- <p class="service-item-text">
-                  Lorium ipsum dolor Sit Amet
-                </p> -->
-              </div>
-
-            </li>
-
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Andrew Moroney</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Aron’s ability to speak at a deeply technical level with client IT resources is valuable in moving through complex and ambiguous technical environments, however he is also able to consistently translate this language for non-technical clients, explaining things in a common-sense manner that gives him a strong level of versatility. 
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Andrew Powell</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Aron joined the company early on, during a period of significant growth, and swiftly implemented tools and processes which vastly improved the consistency and efficiency with which the Engineering team were able to work. <br /><br /> His ability to rapidly scope and plan work resulted in a clear, shareable Engineering deliverables and timeframes, improving communication with non-Engineering team members and resulting in a better service overall to CoinJar's users. Outages and downtime became all but obsolete under Aron's lead. 
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Rowan Castan</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Within a handful of weeks the team had turned around. Aron assisted in the hiring of new developers and was hands on in every aspect of the dev team that needed assistance. His breadth of knowledge and no-BS let's get it done attitude kept everyone including myself focussed and in check. <br /><br />We quickly developed a larger dev team and became a well oiled machine understanding where time and energy was being wasted and how to minimise it and keep on task.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>PK Heng</h4>
-                
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    As a leader Aron has made me question my approach to programming as well as work life and has truly been an inspiration to strive for excellence. He is constantly reviewing best practises ensuring that the mobile team’s output is both quality and efficient. Some examples of this include TDD and continuous integration, both been introduced under his guidance. 
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-
-        <!--
-          - clients
-        -->
-
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Teams I've worked with</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-                <img src="./assets/images/coinjar_logo.png" alt="client logo">
-            </li>
-
-            <li class="clients-item">
-                <img src="./assets/images/vanguard_logo.png" alt="client logo">
-            </li>
-
-            <li class="clients-item">
-                <img src="./assets/images/telstra_logo.png" alt="client logo">
-            </li>
-
-            <li class="clients-item">
-                <img src="./assets/images/trend_rocket_logo.png" alt="client logo">
-            </li>
-
-            <li class="clients-item">
-                <img src="./assets/images/stax_logo.png" alt="client logo">
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-      <!--
-    - custom js link
-  -->
-      <script src="./assets/js/script.js"></script>
-
-      <!--
-    - ionicon link
-  -->
-      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+      <div class="swipe-dots" aria-hidden="true">
+        <span class="on"></span><span></span><span></span><span></span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="contact-card">
+      <div class="contact-main">
+        <h2>Get in touch</h2>
+        <a href="mailto:hi@aronbury.com" class="btn btn-light btn-lg">hi@aronbury.com</a>
+      </div>
+      <div class="contact-aside">
+        <a href="https://www.linkedin.com/in/aronbury/">LinkedIn</a>
+        <div>Melbourne, Australia</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/script.js"></script>
 
 </body>
 

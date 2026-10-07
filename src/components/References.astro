@@ -1,0 +1,48 @@
+---
+import { testimonials } from '../data/site';
+import SwipeDots from './SwipeDots.astro';
+---
+
+<section id="references" class="section section-stack">
+  <h2>What people say</h2>
+  <div class="work-grid">
+    {
+      testimonials.map((t) => (
+        <figure class="card quote">
+          <blockquote>{t.quote}</blockquote>
+          <figcaption>
+            <strong>{t.name}</strong> · {t.title}
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+  <SwipeDots count={testimonials.length} />
+</section>
+
+<style>
+  .quote {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px;
+  }
+
+  .quote blockquote {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.45;
+  }
+
+  .quote figcaption {
+    margin-top: auto;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+
+  .quote figcaption strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+</style>

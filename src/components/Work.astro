@@ -1,0 +1,117 @@
+---
+import { work } from '../data/site';
+import SwipeDots from './SwipeDots.astro';
+---
+
+<section id="work" class="section section-stack">
+  <h2>Selected work</h2>
+  <div class="work-grid">
+    {
+      work.map((item) => (
+        <article class:list={['card', 'work-card', { 'card-dark': item.dark }]}>
+          <div class="card-meta">
+            <div class="card-org">
+              <span class:list={['chip', `chip-${item.chip}`]} aria-hidden="true">
+                <img src={item.mark} alt="" />
+              </span>
+              <span>{item.org}</span>
+            </div>
+            <div>{item.dates}</div>
+          </div>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+          <div class="card-role">{item.role}</div>
+        </article>
+      ))
+    }
+  </div>
+  <SwipeDots count={work.length} />
+</section>
+
+<style>
+  .work-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .card-org {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .chip {
+    display: inline-flex;
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    background: var(--ground);
+  }
+
+  .chip-packsmith {
+    background: #0b121c;
+  }
+
+  .chip-packsmith img {
+    width: 15px;
+    height: auto;
+  }
+
+  .chip-laf {
+    background: #ea1c2d;
+  }
+
+  .chip-laf img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .chip-coinjar img {
+    max-width: 16px;
+    max-height: 14px;
+  }
+
+  .chip-cocredit img {
+    max-width: 17px;
+    max-height: 12px;
+  }
+
+  .work-card p {
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+
+  .card-role {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .card-dark .card-meta,
+  .card-dark p {
+    color: var(--line-strong);
+  }
+
+  .card-dark .card-role {
+    border-top-color: var(--ink-soft);
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+import { site } from '../data/site';
+---
+
+<footer id="contact" class="site-footer">
+  <div class="contact-card">
+    <div class="contact-main">
+      <h2>Get in touch</h2>
+      <a href={`mailto:${site.email}`} class="btn btn-light btn-lg">{site.email}</a>
+    </div>
+    <div class="contact-aside">
+      <a href={site.linkedin}>LinkedIn</a>
+      <div>{site.location}</div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter) 48px;
+  }
+
+  .contact-card {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px 48px;
+    padding: 56px;
+    background: var(--ink);
+    color: var(--white);
+    border-radius: var(--radius-hero);
+  }
+
+  .contact-main {
+    flex: 1 1 420px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .contact-main h2 {
+    font-size: clamp(36px, 4.6vw, 60px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  .contact-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 15px;
+    color: var(--line-strong);
+  }
+
+  .contact-aside a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--white);
+  }
+
+  .contact-aside a:hover {
+    color: var(--line-strong);
+  }
+</style>

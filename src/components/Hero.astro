@@ -1,0 +1,229 @@
+---
+import { hero } from '../data/site';
+---
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1 class="hl" aria-label={hero.headline.plain}>
+      {
+        hero.headline.rows.map((row) => (
+          <span class="hl-row" aria-hidden="true">
+            <span class="hl-word">{row.word}</span> <span class="hl-phrase">{row.phrase}</span>
+          </span>
+        ))
+      }
+    </h1>
+    <p class="lede">{hero.lede}</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-dark">Get in touch</a>
+      <a href="#work" class="btn btn-outline">See my work</a>
+    </div>
+    <dl class="stats">
+      {
+        hero.stats.map((stat) => (
+          <div class="stat">
+            <dd>{stat.value}</dd>
+            <dt>{stat.label}</dt>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+
+  <div class="hero-photo">
+    <div class="hero-photo-backdrop" aria-hidden="true"></div>
+    <div class="hero-photo-frame">
+      <img
+        src={hero.photo.src}
+        alt={hero.photo.alt}
+        width={hero.photo.width}
+        height={hero.photo.height}
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 56px var(--gutter) 72px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 56px 72px;
+  }
+
+  .hero-copy {
+    flex: 1 1 520px;
+    min-width: 0;
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  /* Headline: two rows, the phrases swap rows (see script below) */
+
+  .hl {
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    /* Fallback for browsers without container units */
+    font-size: min(56px, calc((min(100vw, 1160px) - 560px) / 12.9));
+    font-size: min(56px, 7.75cqw);
+  }
+
+  @media (max-width: 1071px) {
+    .hl {
+      font-size: min(56px, calc((100vw - 64px) / 12.9));
+      font-size: min(56px, 7.75cqw);
+    }
+  }
+
+  .hl-row {
+    display: block;
+  }
+
+  .hl-word,
+  .hl-phrase {
+    display: inline-block;
+  }
+
+  .hl-phrase {
+    white-space: nowrap;
+    transition: color 0.6s var(--ease);
+  }
+
+  .hl-row:nth-child(2) .hl-phrase {
+    color: var(--accent);
+  }
+
+  @container (max-width: 379px) {
+    .hl {
+      font-size: min(56px, 13cqw);
+    }
+
+    .hl-phrase {
+      white-space: normal;
+      max-width: 100%;
+    }
+  }
+
+  .lede {
+    align-self: stretch;
+    max-width: 560px;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 40px;
+    margin: 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-strong);
+    align-self: stretch;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat dd {
+    margin: 0;
+    font-family: var(--ff-display);
+    font-size: 44px;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  .stat dt {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .hero-photo {
+    flex: 0 1 400px;
+    min-width: 0;
+    position: relative;
+    margin: 0 16px 16px 0;
+  }
+
+  .hero-photo-backdrop {
+    position: absolute;
+    top: 28px;
+    right: -16px;
+    bottom: -16px;
+    left: 28px;
+    border-radius: var(--radius-hero);
+    background: var(--accent);
+  }
+
+  .hero-photo-frame {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-hero);
+    background: var(--photo-ground);
+    overflow: hidden;
+  }
+
+  .hero-photo-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<script>
+  // Swap the two phrases between rows every few seconds,
+  // animating each word from its old position to its new one.
+  function headlineSwap(h1: HTMLElement | null) {
+    if (!h1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const rows = h1.querySelectorAll<HTMLElement>('.hl-row');
+    if (rows.length < 2) return;
+    const ease = 'cubic-bezier(0.65, 0, 0.35, 1)';
+
+    setInterval(() => {
+      const a = rows[0].querySelector<HTMLElement>('.hl-phrase');
+      const b = rows[1].querySelector<HTMLElement>('.hl-phrase');
+      if (!a || !b) return;
+
+      const els = Array.from(h1.querySelectorAll<HTMLElement>('.hl-word, .hl-phrase'));
+      const first = els.map((e) => e.getBoundingClientRect());
+
+      rows[0].appendChild(b);
+      rows[1].appendChild(a);
+
+      const last = els.map((e) => e.getBoundingClientRect());
+
+      els.forEach((e, i) => {
+        e.style.transition = `transform 0s, color .6s ${ease}`;
+        e.style.transform = `translate(${first[i].left - last[i].left}px, ${first[i].top - last[i].top}px)`;
+      });
+
+      void h1.offsetWidth; // force reflow so the next transition runs
+
+      els.forEach((e) => {
+        e.style.transition = `transform .6s ${ease}, color .6s ${ease}`;
+        e.style.transform = 'translate(0px, 0px)';
+      });
+    }, 2600);
+  }
+
+  headlineSwap(document.querySelector<HTMLElement>('.hl'));
+</script>
