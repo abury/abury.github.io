@@ -1,8 +1,13 @@
 export const site = {
   name: 'Aron Bury',
-  title: 'Aron Bury - Engineering Leadership',
+  title: 'Aron Bury · I turn financial operations into software',
   description:
-    'Aron Bury turns financial operations into software. Co-founder & CTO, Head of Engineering, Melbourne.',
+    '15 years building and leading engineering teams across startups, SMEs and corporates. Co-founder & CTO at Co.Credit. Melbourne, Australia.',
+  social: {
+    title: 'Aron Bury · I turn financial operations into software',
+    image: '/assets/og.jpg',
+    imageAlt: 'Aron Bury. I turn financial operations into software.',
+  },
   email: 'hi@aronbury.com',
   linkedin: 'https://www.linkedin.com/in/aronbury/',
   location: 'Melbourne, Australia',
