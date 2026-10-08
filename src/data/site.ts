@@ -31,10 +31,6 @@ export const hero = {
   lede:
     "I've spent 15 years building and leading engineering teams across startups, SMEs and corporates. I've also run the operations behind them: billing, bookkeeping, lending and reporting. The systems I build fit the way a business actually works.",
   photo: { src: '/images/aron.jpg', alt: 'Aron Bury', width: 1000, height: 1250 },
-  stats: [
-    { value: '15', label: 'Years in software' },
-    { value: '2', label: 'Companies co-founded' },
-  ],
 };
 
 export const logos = [

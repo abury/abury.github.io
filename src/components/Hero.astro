@@ -18,16 +18,6 @@ import { hero } from '../data/site';
       <a href="#contact" class="btn btn-dark">Get in touch</a>
       <a href="#work" class="btn btn-outline">See my work</a>
     </div>
-    <dl class="stats">
-      {
-        hero.stats.map((stat) => (
-          <div class="stat">
-            <dd>{stat.value}</dd>
-            <dt>{stat.label}</dt>
-          </div>
-        ))
-      }
-    </dl>
   </div>
 
   <div class="hero-photo">
@@ -123,36 +113,6 @@ import { hero } from '../data/site';
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-  }
-
-  .stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px 40px;
-    margin: 0;
-    padding-top: 20px;
-    border-top: 1px solid var(--line-strong);
-    align-self: stretch;
-  }
-
-  .stat {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .stat dd {
-    margin: 0;
-    font-family: var(--ff-display);
-    font-size: 44px;
-    line-height: 1;
-    font-weight: 600;
-    letter-spacing: -0.03em;
-  }
-
-  .stat dt {
-    font-size: 14px;
-    color: var(--ink-soft);
   }
 
   .hero-photo {
