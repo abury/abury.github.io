@@ -14,7 +14,7 @@ npm run preview  # serve dist/ locally
 ## Where things live
 
 - `src/data/site.ts` — all copy and content: headline, stats, work cards, experience, testimonials, logos. Edit this to change what the page says.
-- `src/components/` — one component per section (Header, Hero, Logos, Work, Experience, References, Contact), each with its own scoped styles.
+- `src/components/` — one component per section (Header, Hero, Logos, Work, Ai, Experience, References, Contact), each with its own scoped styles.
 - `src/styles/global.css` — design tokens, type, buttons, and the shared card and carousel rules.
 - `src/layouts/Base.astro` — document shell, fonts and meta tags.
 - `public/images/` — photo, client logos and company marks.

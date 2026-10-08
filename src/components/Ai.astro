@@ -1,0 +1,173 @@
+---
+import { ai } from '../data/site';
+---
+
+<section id="ai" class="section section-stack">
+  <div class="ai-heading">
+    <h2>{ai.heading}</h2>
+    <svg class="robot" aria-hidden="true" viewBox="0 0 100 100">
+      <g class="rb-head" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="50" y1="13" x2="50" y2="22"></line>
+        <circle cx="50" cy="8" r="5"></circle>
+        <path d="M13 45 H9 Q6 45 6 48 V58 Q6 61 9 61 H13"></path>
+        <path d="M87 45 H91 Q94 45 94 48 V58 Q94 61 91 61 H87"></path>
+        <rect x="13" y="22" width="74" height="64" rx="14"></rect>
+        <g class="rb-face">
+          <g class="rb-eyes">
+            <circle cx="36" cy="50" r="10"></circle>
+            <circle cx="64" cy="50" r="10"></circle>
+            <g class="rb-look" fill="currentColor" stroke="none">
+              <circle cx="36" cy="50" r="4.5"></circle>
+              <circle cx="64" cy="50" r="4.5"></circle>
+            </g>
+          </g>
+          <path d="M44 71 Q50 75.5 56 71" stroke-width="4.5"></path>
+        </g>
+      </g>
+      <g class="rb-wave" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M96 80 Q106 74 110 60"></path>
+        <rect x="103" y="42" width="15" height="17" rx="6"></rect>
+      </g>
+    </svg>
+  </div>
+
+  <div class="ai-grid">
+    {
+      ai.cards.map((card) => (
+        <article class="card ai-card">
+          <h3>{card.title}</h3>
+          <p>{card.body}</p>
+          <div class="card-tools">{card.tools}</div>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .ai-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .robot {
+    display: block;
+    flex: 0 0 auto;
+    width: 52px;
+    height: 52px;
+    overflow: visible;
+    color: var(--ink);
+  }
+
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 20px;
+  }
+
+  .ai-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+  }
+
+  .ai-card p {
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+
+  .card-tools {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* Robot: the head tilts, the face and pupils glance around, the eyes blink,
+     and once per cycle a hand pops in and waves. */
+
+  .rb-head {
+    transform-box: fill-box;
+    transform-origin: 50% 90%;
+    animation: rb-tilt 12s var(--ease) infinite;
+  }
+
+  .rb-face {
+    animation: rb-face 12s var(--ease) infinite;
+  }
+
+  .rb-look {
+    animation: rb-look 12s var(--ease) infinite;
+  }
+
+  .rb-eyes {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: rb-blink 6s linear infinite;
+  }
+
+  .rb-wave {
+    opacity: 0;
+    transform-box: view-box;
+    transform-origin: 96px 80px;
+    animation: rb-wave 12s ease-in-out infinite;
+  }
+
+  @keyframes rb-tilt {
+    0%, 8% { transform: rotate(0deg); }
+    12%, 24% { transform: rotate(-7deg); }
+    28%, 40% { transform: rotate(0deg); }
+    44%, 56% { transform: rotate(7deg); }
+    60%, 66% { transform: rotate(-4deg); }
+    70%, 76% { transform: rotate(4deg); }
+    82%, 100% { transform: rotate(0deg); }
+  }
+
+  @keyframes rb-face {
+    0%, 8% { transform: translate(0, 0); }
+    12%, 24% { transform: translate(-4px, 2px); }
+    28%, 40% { transform: translate(0, 3px); }
+    44%, 56% { transform: translate(4px, 2px); }
+    60%, 66% { transform: translate(-4px, -2px); }
+    70%, 76% { transform: translate(4px, -1px); }
+    82%, 100% { transform: translate(0, 0); }
+  }
+
+  @keyframes rb-look {
+    0%, 8% { transform: translate(0, 0); }
+    12%, 24% { transform: translate(-4.5px, 3px); }
+    28%, 40% { transform: translate(0, 4.5px); }
+    44%, 56% { transform: translate(4.5px, 3px); }
+    60%, 66% { transform: translate(-4.5px, -3px); }
+    70%, 76% { transform: translate(4.5px, -2px); }
+    82%, 100% { transform: translate(0, 0); }
+  }
+
+  @keyframes rb-blink {
+    0%, 44%, 48%, 90%, 94%, 100% { transform: scaleY(1); }
+    46%, 92% { transform: scaleY(0.1); }
+  }
+
+  @keyframes rb-wave {
+    0%, 85% { opacity: 0; transform: rotate(30deg); }
+    87% { opacity: 1; transform: rotate(-12deg); }
+    89.25% { transform: rotate(14deg); }
+    91.5% { transform: rotate(-12deg); }
+    93.75% { transform: rotate(14deg); }
+    96% { opacity: 1; transform: rotate(-6deg); }
+    98%, 100% { opacity: 0; transform: rotate(30deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rb-head,
+    .rb-face,
+    .rb-look,
+    .rb-eyes,
+    .rb-wave {
+      animation: none;
+    }
+  }
+</style>

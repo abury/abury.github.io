@@ -15,6 +15,7 @@ export const site = {
 
 export const nav = [
   { label: 'Work', href: '#work' },
+  { label: 'AI', href: '#ai' },
   { label: 'Experience', href: '#experience' },
   { label: 'References', href: '#references' },
 ];
@@ -101,6 +102,27 @@ export const work: {
     dark: true,
   },
 ];
+
+export const ai = {
+  heading: 'How I use AI',
+  cards: [
+    {
+      title: 'Coding agents',
+      body: 'I coordinate multiple AI agents working in parallel to build systems.',
+      tools: 'Claude Code · Codex · OpenCode',
+    },
+    {
+      title: 'Internal operations',
+      body: 'I use AWS Bedrock to keep critical data sandboxed and easily plug into existing workflows and applications.',
+      tools: 'AWS Bedrock',
+    },
+    {
+      title: 'Product design',
+      body: 'Rapid prototyping, mockups and design systems.',
+      tools: 'Claude Design · Figma Make · UX Pilot',
+    },
+  ],
+};
 
 export const sonderSlides = [
   { kind: 'laf', src: '/images/mark-localagentfinder.svg' },
